@@ -1668,7 +1668,7 @@ private:
     friend int func(int a, int b);
 /*  ^ storage.modifier */
 /*         ^ storage.type */
-/*             ^ entity.name.function */
+/*             ^ - entity.name.function */
 /*             ^ - meta.function-call */
 
     friend int func(int a, int b) {
@@ -1687,6 +1687,13 @@ private:
 /*         ^ storage.type
 /*               ^^ punctuation.accessor */
 /*                 ^ - entity */
+
+    friend bool operator != (const X& lhs, const X& rhs) {
+    /*          ^^^^^^^^^^^ entity.name.function */
+        int a = 1;
+    }
+/*  ^ meta.class meta.block meta.block punctuation.section.block.end */
+/*   ^ - meta.class meta.block meta.block */
 
     #if 0
     /*  ^ constant.numeric */
