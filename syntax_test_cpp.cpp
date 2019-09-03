@@ -1080,7 +1080,9 @@ long func
     if (foo < bar && baz > bar ) {
 /*          ^ keyword.operator.comparison */
 /*                       ^ keyword.operator.comparison */
-
+    if (foo < bar || baz > bar );
+/*          ^ keyword.operator.comparison */
+/*                       ^ keyword.operator.comparison */
     label:
 /*  ^ entity.name.label */
 /*       ^ punctuation.separator */
@@ -2347,6 +2349,31 @@ void sayHi()
 /*         ^ constant.numeric */
 /*          ^ punctuation.section.generic.end */
 /*           ^^ meta.group */
+
+    foobaz<int*>();
+/*  ^^^^^^^^^^^^^^ meta.function-call */
+/*  ^^^^^^ variable.function */
+/*        ^ punctuation.section.generic.begin */
+/*            ^ keyword.operator */
+/*             ^ punctuation.section.generic.end */
+/*              ^^ meta.group */
+
+    foobaz<int&>();
+/*  ^^^^^^^^^^^^^^ meta.function-call */
+/*  ^^^^^^ variable.function */
+/*        ^ punctuation.section.generic.begin */
+/*            ^ keyword.operator */
+/*             ^ punctuation.section.generic.end */
+/*              ^^ meta.group */
+
+    foobaz<int()>();
+/*  ^^^^^^^^^^^^^^^ meta.function-call */
+/*  ^^^^^^ variable.function */
+/*        ^ punctuation.section.generic.begin */
+/*            ^  punctuation.section.group.begin */
+/*             ^ punctuation.section.group.end */
+/*              ^ punctuation.section.generic.end */
+/*               ^^ meta.group */
 
     int a[5];
 /*       ^^^ meta.brackets */
