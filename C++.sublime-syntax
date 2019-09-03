@@ -42,9 +42,9 @@ variables:
   regular: '[^(){}&|;^%=<>-]*'
   regular_paren: '[^()]*'
   regular_plus: '[^(){}&|;^%=<>-]+'
-  paren_open: (?:\(
-  paren_close: '\){{regular}})?'
-  balance_parentheses: '{{paren_open}}{{regular_paren}}{{paren_close}}'
+  paren_open: '{{regular_paren}}(?:\('
+  paren_close: '\){{regular_paren}})?'
+  balance_parentheses: '(?:\({{paren_open}}{{paren_open}}{{regular_paren}}{{paren_close}}{{paren_close}}\){{regular_paren}})?'
   generic_open: (?:{{regular_plus}}(?:<
   generic_close: '>|&*))?\s*{{balance_parentheses}}\s*'
   generic_lookahead: <{{generic_open}}{{generic_open}}{{regular}}{{generic_close}}{{generic_close}}>
