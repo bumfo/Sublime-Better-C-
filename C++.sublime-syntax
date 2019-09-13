@@ -697,6 +697,8 @@ contexts:
     - match: '{{identifier}}'
       scope: variable.other.readwrite.member.c++
       pop: true
+    - match: '(?=\S)'
+      pop: true
 
   members-dot:
     - include: scope:source.c#access-illegal
