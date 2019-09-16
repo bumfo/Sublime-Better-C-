@@ -1,0 +1,7 @@
+<snippet>
+	<description>no sync with stdio</description>
+	<content><![CDATA[ios::sync_with_stdio(0);
+cin.tie(0);]]></content>
+	<tabTrigger>nosync</tabTrigger>
+	<scope>source.c++, source.objc++</scope>
+</snippet>
